@@ -12,7 +12,13 @@ Obs.:
 - considerando os números 30, 50 e 60, a opção 3 irá mostrar 50 - 30 - 60 ou 60 - 30 - 50.
 */
 #include <stdio.h>
-#include "lancarErro.h"
+
+void lancarErro(){
+    char c;
+    while( c = getchar() != '\n');
+    printf("Tipo de Entrada Inválido\n");
+}
+
 int main(){
 
 	int n1,n2,n3,opcao;

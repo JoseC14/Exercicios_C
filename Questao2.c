@@ -11,7 +11,13 @@ Observações:
 
 #include <stdio.h>
 #include <math.h> 
-#include "lancarErro.h"
+
+
+void lancarErro(){
+    char c;
+    while( c = getchar() != '\n');
+    printf("Tipo de Entrada Inválido\n");
+}
 
 int main(){
 

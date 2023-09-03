@@ -10,7 +10,13 @@ Faça um programa que receba as idades, pesos e alturas de dez pessoas, calcule 
 3) a porcentagem de pessoas com idade entre 10 e 30 anos entre as pessoas que medem mais de 1,90m.
 */
 #include <stdio.h>
-#include "lancarErro.h"
+
+void lancarErro(){
+    char c;
+    while( c = getchar() != '\n');
+    printf("Tipo de Entrada Inválido\n");
+}
+
 int main(){
 	
 	int idade, quantPesoMetro, idades,altos,entre;
