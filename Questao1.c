@@ -12,6 +12,7 @@
 */
 #include <stdio.h>
 #include <math.h>
+#include "lancarErro.h"
 
 int main(){
     double numero,numeroQuadrado,numeroCubo,numeroRaiz,numeroCubica,numeroResto;
@@ -19,7 +20,10 @@ int main(){
 	while(1){
 		
 		printf("Digite um número inteiro e positivo: ");
-		scanf("%lf",&numero);
+		if(scanf("%lf",&numero) == 0){
+			lancarErro();
+			continue;
+		}
 		if(numero > 0){
 			
 			numeroQuadrado = pow(numero,2.0);		
@@ -36,7 +40,7 @@ int main(){
 			printf("A raiz cubica de %0.2lf é %0.2lf \n", numero, numeroCubica);
 			
 			numeroResto = fmod(numero,3.0);
-			printf("O resto da divisão de %0.2lf por 3 é %0.2lf \n", numero, numeroResto);
+			printf("O resto da divisão de %0.2lf por 3 é %0.2lf \n\n", numero, numeroResto);
 		}else{
 			printf("Numero negativo, Digite um número positivo\n");
 		}

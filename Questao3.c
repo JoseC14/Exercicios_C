@@ -12,28 +12,42 @@ Obs.:
 - considerando os números 30, 50 e 60, a opção 3 irá mostrar 50 - 30 - 60 ou 60 - 30 - 50.
 */
 #include <stdio.h>
-
+#include "lancarErro.h"
 int main(){
 
 	int n1,n2,n3,opcao;
 	
 	
 	while(1){
+
+		
 		printf("Digite o número 1: ");
-		scanf("%i", &n1);
+		if(scanf("%i", &n1) == 0){
+			lancarErro();
+			continue;
+		}
 		
 		printf("Digite o número 2: ");
-		scanf("%i", &n2);
+		if(scanf("%i", &n2) ==0){
+			lancarErro();
+			continue;
+		}
 		
 		printf("Digite o número 3: ");
-		scanf("%i", &n3);
+		if(scanf("%i", &n3) == 0){
+			lancarErro();
+			continue;			
+		};
 		
 		printf(" Escolha uma das opções\n");
 		printf(" 1 - Mostre os números em ordem crescente\n");
 		printf(" 2 - Mostre os números em ordem decrescente\n");
 		printf(" 3 - Mostre o menor número entre os demais.\n");
 		
-		scanf("%i",&opcao);
+		if(scanf("%i",&opcao) == 0){
+			lancarErro();
+			continue;
+		};
 		if(opcao == 1){
 			if(n1 < n2 && n1 < n3){
 				printf("%i - ", n1);
@@ -92,6 +106,10 @@ int main(){
 			}
 			
 			
+		}else{
+			printf("Opção inválida");
+			setbuf(stdin,NULL);
+			continue;
 		}
 		
 		printf("\n");

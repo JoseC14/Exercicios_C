@@ -11,7 +11,7 @@ Observações:
 
 #include <stdio.h>
 #include <math.h> 
-
+#include "lancarErro.h"
 
 int main(){
 
@@ -21,9 +21,8 @@ int main(){
 	while(1){
 		printf("Digite as horas no formato HH.MM: ");
 		
-		if (scanf("%f", &tempo) != 1){
-			printf("Tipo de entrada inválido\n");
-			setbuf(stdin,NULL);
+		if (scanf("%f", &tempo) == 0){
+			lancarErro();
 			continue;
 		};
 	

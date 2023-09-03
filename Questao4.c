@@ -1,6 +1,6 @@
 //Faça um programa que leia um número inteiro positivo até que o usuário digite 0. Para cada número maior que zero, mostre o número e o fatorial do mesmo.
 #include <stdio.h>
-
+#include "lancarErro.h"
 int main(){
 	
     int num,res;
@@ -9,9 +9,9 @@ int main(){
 	while(1){
 		res = 1;
 		printf("Digite o número para fazer o fatorial: ");
+		
 		if(scanf("%i", &num) == 0){
-			printf("Entrada inválida\n");
-			getchar();
+			lancarErro();
 			continue;
 		};
 		

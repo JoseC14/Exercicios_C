@@ -10,7 +10,7 @@ Faça um programa que receba as idades, pesos e alturas de dez pessoas, calcule 
 3) a porcentagem de pessoas com idade entre 10 e 30 anos entre as pessoas que medem mais de 1,90m.
 */
 #include <stdio.h>
-
+#include "lancarErro.h"
 int main(){
 	
 	int idade, quantPesoMetro, idades,altos,entre;
@@ -19,13 +19,29 @@ int main(){
 	idades = 0;
 	for(int i = 0; i < 10 ; i++){
 		printf("Digite a idade da pessoa %i: ", i + 1);
-		scanf("%i",&idade);
+
+		if(scanf("%i",&idade) == 0){
+			lancarErro();
+
+			i -= 1;
+			continue;
+		}
 		
 		printf("Digite o peso: ");
-		scanf("%f",&peso);
+		if(scanf("%f",&peso) == 0){
+			lancarErro();
+
+			i -= 1;
+			continue;
+		}
 		
 		printf("Digite a altura: ");
-		scanf("%f", &altura);
+		if(scanf("%f", &altura) == 0){
+			lancarErro();
+
+			i -= 1;
+			continue;
+		}
 		
 		if(peso > 80 && altura < 1.50){
 			quantPesoMetro += 1;
@@ -40,7 +56,6 @@ int main(){
 		}
 		
 		idades += idade;
-		printf("Soma das idades %i", idades);
 	}
 			
 	idadeMedia =  idades/10;
