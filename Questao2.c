@@ -1,6 +1,7 @@
 /*
 
-Faça um programa que receba uma hora formada por hora e minutos (um número real), calcule e mostre a quantidade de minutos e a quantidades de segundos equivalentes à hora digitada. 
+Faça um programa que receba uma hora formada por hora e minutos (um número real), 
+calcule e mostre a quantidade de minutos e a quantidades de segundos equivalentes à hora digitada. 
 
 Observações:
 1) o número digitado 15.35 equivale a 15 horas e 35 minutos;
@@ -20,9 +21,9 @@ void lancarErro(){
 }
 
 int main(){
-
-	float tempo,horas;
-	int minutos,segundos;
+	double decimalTempo;
+	float tempo;
+	int horas, minutos, segundos;
 	
 	while(1){
 		printf("Digite as horas no formato HH.MM: ");
@@ -31,11 +32,10 @@ int main(){
 			lancarErro();
 			continue;
 		};
-	
-		horas = truncf(tempo);	
-	    
-		minutos  = (int) ((tempo - horas) * 100);
-		
+
+		minutos =  modf(tempo,&decimalTempo) * 100;
+		horas = (int) decimalTempo;
+
 		if((horas < 0 || horas >23) || (minutos < 0 || minutos > 59)){
 			printf("Tempo inválido\n");
 		}else{

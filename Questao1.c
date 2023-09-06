@@ -21,34 +21,42 @@ void lancarErro(){
 }
 
 int main(){
-    double numero,numeroQuadrado,numeroCubo,numeroRaiz,numeroCubica,numeroResto;
+    float numero;
+	float parteDecimal;
+	int numeroInteiro;
+    double numeroQuadrado,numeroCubo,numeroRaiz,numeroCubica,numeroResto;
 	
 	while(1){
 		
 		printf("Digite um número inteiro e positivo: ");
-		if(scanf("%lf",&numero) == 0){
+		if(scanf("%f",&numero) == 0){
 			lancarErro();
 			continue;
 		}
-		if(numero > 0){
+
+		numeroInteiro = (int) numero;
+        
+		parteDecimal = numero - numeroInteiro;
+
+		if(numero > 0 && parteDecimal == 0){
 			
 			numeroQuadrado = pow(numero,2.0);		
-			printf("%0.2lf ao quadrado é %0.2lf \n", numero, numeroQuadrado);
+			printf("%i ao quadrado é %0.2lf \n", numero, numeroQuadrado);
 			
 			numeroCubo = pow(numero,3.0);		
-			printf("%0.2lf ao cubo é %0.2lf \n", numero, numeroCubo);
+			printf("%i ao cubo é %0.2lf \n", numero, numeroCubo);
 			
 			numeroRaiz = sqrt(numero);
-			printf("A raiz de quadrada de %0.2lf é %0.2lf \n", numero, numeroRaiz);
+			printf("A raiz de quadrada de %i é %0.2lf \n", numero, numeroRaiz);
 			
 			
 			numeroCubica = cbrt(numero);
-			printf("A raiz cubica de %0.2lf é %0.2lf \n", numero, numeroCubica);
+			printf("A raiz cubica de %i é %0.2lf \n", numero, numeroCubica);
 			
 			numeroResto = fmod(numero,3.0);
-			printf("O resto da divisão de %0.2lf por 3 é %0.2lf \n\n", numero, numeroResto);
+			printf("O resto da divisão de %i por 3 é %0.2lf \n\n", numero, numeroResto);
 		}else{
-			printf("Numero negativo, Digite um número positivo\n");
+			lancarErro();
 		}
 	}
 	
