@@ -20,31 +20,44 @@ void lancarErro(){
 }
 
 int main(){
-
+	int numeros[3];
+	int temp;
 	int n1,n2,n3,opcao;
 	
-	
+	inicioLoop:
 	while(1){
 
 		
 		printf("Digite o número 1: ");
-		if(scanf("%i", &n1) == 0){
+		if(scanf("%i", &numeros[0]) == 0){
 			lancarErro();
 			continue;
 		}
 		
 		printf("Digite o número 2: ");
-		if(scanf("%i", &n2) ==0){
+		if(scanf("%i", &numeros[1]) ==0){
 			lancarErro();
 			continue;
 		}
 		
 		printf("Digite o número 3: ");
-		if(scanf("%i", &n3) == 0){
+		if(scanf("%i", &numeros[2]) == 0){
 			lancarErro();
 			continue;			
 		};
 		
+		for(int k = 0; k < 2; k++){
+			if(numeros[k] == numeros[k + 1]){
+				printf("número %d igual a numero %d .Números não podem ser iguais \n", k + 1, k+2);
+				goto inicioLoop;
+			}
+
+			if(numeros[k] == numeros[k + 2]){
+				printf("número %d igual a numero %d .Números não podem ser iguais \n", k+1, k+3);
+				goto inicioLoop;
+			}
+
+		}
 		printf(" Escolha uma das opções\n");
 		printf(" 1 - Mostre os números em ordem crescente\n");
 		printf(" 2 - Mostre os números em ordem decrescente\n");
@@ -54,64 +67,48 @@ int main(){
 			lancarErro();
 			continue;
 		};
+
+		//Utilizando o algoritmo bubble sort...
 		if(opcao == 1){
-			if(n1 < n2 && n1 < n3){
-				printf("%i - ", n1);
-				if(n2 < n3){
-					printf("%i - %i",n2,n3);
-				}else{
-					printf("%i - %i",n3,n2);
-				}
-			}else if(n2 < n1 && n2 < n3){
-				printf("%i - ", n2);
-				if(n1 < n3){
-					printf("%i - %i",n1,n3);
-				}else{
-					printf("%i - %i",n3,n1);
-				}
-			}else if(n3 < n1 && n3 < n2){
-				printf("%i - ", n3);
-				if(n2 < n1){
-					printf("%i - %i",n2,n1);
-				}else{
-					printf("%i - %i",n1,n2);
+
+			for(int i = 0; i < 3; i++){
+				for(int j = 0; j < 2; j++){
+					if(numeros[j]>numeros[j+1]){
+						temp = numeros[j + 1];
+						numeros[ j + 1] = numeros[j];
+						numeros[j] = temp;
+					}
 				}
 			}
+
+			printf("%d - %d - %d",numeros[0],numeros[1],numeros[2]);
+	
 		}else if(opcao == 2){
-			if(n1 > n2 && n1 > n3){
-				printf("%i - ", n1);
-				if(n2 > n3){
-					printf("%i - %i",n2,n3);
-				}else{
-					printf("%i - %i",n3,n2);
-				}
-			}else if(n2 > n1 && n2 > n3){
-				printf("%i - ", n2);
-				if(n1 > n3){
-					printf("%i - %i",n1,n3);
-				}else{
-					printf("%i - %i",n3,n1);
-				}
-			}else if(n3 > n1 && n3 > n2){
-				printf("%i - ", n3);
-				if(n2 > n1){
-					printf("%i - %i",n2,n1);
-				}else{
-					printf("%i - %i",n1,n2);
+			for(int i = 0; i < 3; i++){
+				for(int j = 0; j < 2; j++){
+					if(numeros[j]<numeros[j+1]){
+						temp = numeros[j +1];
+						numeros[ j +1] = numeros[j];
+						numeros[j] = temp;
+					}
 				}
 			}
+			
+
+			printf("%d - %d - %d",numeros[0],numeros[1],numeros[2]);
+			
 		}else if(opcao == 3){
-			if(n1 < n2 && n1 < n3){
-				printf("%i - %i - %i", n3, n1, n2);
-			}else if(n2 < n1 && n2 < n3){
-				printf("%i - %i - %i",n3, n2, n1);
-				
-			}else if(n3 < n1 && n3 < n2){
-				printf("%i - %i - %i", n1, n3, n2);
-				
+			for(int i = 0; i < 3; i++){
+				for(int j = 0; j < 2; j++){
+					if(numeros[j]<numeros[j+1]){
+						temp = numeros[j +1];
+						numeros[ j +1] = numeros[j];
+						numeros[j] = temp;
+					}
+				}
 			}
-			
-			
+
+			printf("%d - %d - %d",numeros[1],numeros[2],numeros[0]);
 		}else{
 			printf("Opção inválida");
 			setbuf(stdin,NULL);

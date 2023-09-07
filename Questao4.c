@@ -1,4 +1,5 @@
-//Faça um programa que leia um número inteiro positivo até que o usuário digite 0. Para cada número maior que zero, mostre o número e o fatorial do mesmo.
+//Faça um programa que leia um número inteiro positivo até que o usuário digite 0. 
+//Para cada número maior que zero, mostre o número e o fatorial do mesmo.
 #include <stdio.h>
 
 void lancarErro(){
