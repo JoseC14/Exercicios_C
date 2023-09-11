@@ -24,7 +24,7 @@ int main(){
 	int temp;
 	int n1,n2,n3,opcao;
 	
-	inicioLoop:
+	
 	while(1){
 
 		
@@ -46,17 +46,9 @@ int main(){
 			continue;			
 		};
 		
-		for(int k = 0; k < 2; k++){
-			if(numeros[k] == numeros[k + 1]){
-				printf("número %d igual a numero %d .Números não podem ser iguais \n", k + 1, k+2);
-				goto inicioLoop;
-			}
-
-			if(numeros[k] == numeros[k + 2]){
-				printf("número %d igual a numero %d .Números não podem ser iguais \n", k+1, k+3);
-				goto inicioLoop;
-			}
-
+		if(numeros[0] == numeros[1] || numeros[1] == numeros[2] || numeros[0] == numeros[2]){
+			printf("Erro. Dois números não podem se iguais\n");
+			continue;
 		}
 		printf(" Escolha uma das opções\n");
 		printf(" 1 - Mostre os números em ordem crescente\n");
