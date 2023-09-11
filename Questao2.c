@@ -40,7 +40,7 @@ int main(){
 			printf("Tempo inválido\n");
 		}else{
 			segundos = (int) (horas * 3600) + (minutos * 60);
-			minutos = (int) (horas * 60) + minutos;
+			minutos  = (int) (horas * 60) + minutos;
 			
 			printf("%i segundos\n",segundos);
 			printf("%i minutos\n", minutos);

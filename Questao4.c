@@ -1,7 +1,8 @@
 //Faça um programa que leia um número inteiro positivo até que o usuário digite 0. 
 //Para cada número maior que zero, mostre o número e o fatorial do mesmo.
 #include <stdio.h>
-
+#include <limits.h>
+#include <math.h>
 void lancarErro(){
     char c;
     while( c = getchar() != '\n');
@@ -9,7 +10,8 @@ void lancarErro(){
 }
 int main(){
 	
-    int num,res;
+    int num,temp;
+	double res;
 	
 	
 	while(1){
@@ -27,12 +29,16 @@ int main(){
 			printf("Número negativo\n");
 			continue;
 		}else{
+			temp = num;
 			while(num !=0){
 				res *= num;
 				num--;
+				if(res > INT_MAX){
+					printf("Limite atingindo\n");
+					break;
+				}
 			}
-			
-			printf("Resultado do Fatorial: %i \n", res);
+			printf("Resultado do Fatorial de %i: %.0lf \n", temp,res);
 		}
 	
 	}
