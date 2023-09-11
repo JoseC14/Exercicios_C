@@ -33,10 +33,7 @@ int main(){
 			while(num !=0){
 				res *= num;
 				num--;
-				if(res > INT_MAX){
-					printf("Limite atingindo\n");
-					break;
-				}
+
 			}
 			printf("Resultado do Fatorial de %i: %.0lf \n", temp,res);
 		}

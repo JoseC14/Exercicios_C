@@ -53,23 +53,32 @@ int main(){
 			quantPesoMetro += 1;
 		}
 		
-		if(altura > 1.90){
+		if(altura >= 1.90){
+			
 			altos += 1;	
+			if((idade >= 10 && idade <= 30)){
+				
+			 	entre += 1;
+			}
 		}
 		
-		if((idade > 10 && idade < 30) && altura > 1.90){
-			 entre += 1;
-		}
+		
 		
 		idades += idade;
 	}
 			
 	idadeMedia =  idades/10;
 	
-	porcetagem = (entre/altos) * 100;
+	if(altos != NULL){
+		porcetagem =  ((float) entre/altos) * 100;
+		printf("porcentagem de pessoas com idade entre 10 e 30 anos entre as pessoas que medem mais de 1,90m: %.2f%%\n", porcetagem);
+	}else{
+		printf("Não há pessoas com mais de 1.90 de altura\n");
+	}
+	
     printf("Média das idades %f \n", idadeMedia);
 	printf("%i pessoas com peso superior a 80Kg e altura inferior a 1,50 metro\n", quantPesoMetro);
-	printf("porcentagem de pessoas com idade entre 10 e 30 anos entre as pessoas que medem mais de 1,90m: %f\n", porcetagem);
+	
 	
 	return 0;
 }

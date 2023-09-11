@@ -10,6 +10,9 @@
 
 5) o resto da divisão do número por 3.
 */
+
+// AVISO: UTILIZE -lm quando for compilar
+
 #include <stdio.h>
 #include <math.h>
 
